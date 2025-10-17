@@ -123,6 +123,10 @@ return {
 			},
 		})
 
+		lspconfig.gopls.setup({
+			capabilities = capabilities,
+		})
+
 		lspconfig.tailwindcss.setup({
 			capabilities = capabilities,
 			filetypes = {

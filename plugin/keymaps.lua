@@ -44,7 +44,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- plugs and test
 vim.keymap.set("n", "<leader>%", "<cmd>source %<CR>")
-vim.keymap.set("n", "<leader>x", ":.lua<CR>")
+-- vim.keymap.set("n", "<leader>x", ":.lua<CR>")
 vim.keymap.set("v", "<leader>x", ":lua<CR>")
 -- vim.keymap.set("n", "<leader>t", "<cmd>PlenaryBustedFile %<CR>")
 
