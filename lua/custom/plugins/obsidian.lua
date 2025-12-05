@@ -9,7 +9,7 @@ return {
 		require("obsidian").setup({
 			workspaces = {
 				{
-					name = "bashneko",
+					name = "bash",
 					path = "~/SecondBrain/",
 				},
 			},
@@ -53,7 +53,7 @@ return {
 		vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note<CR>:lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<CR>")
 		vim.keymap.set("n", "<leader>op", ":ObsidianTemplate project<CR>:lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<CR>")
 		vim.keymap.set("n", "<leader>of", ":s/^#\\s*\\([^_]*\\)_\\d\\{4\\}-\\d\\{2\\}-\\d\\{2\\}$/# \\1/<CR>")
-		vim.keymap.set("n", "<leader>ok", ":silent! !mv '%:p' /home/bashneko/SecondBrain/reviewed/<CR>:bd<CR>")
+		vim.keymap.set("n", "<leader>ok", ":silent! !mv '%:p' /home/bash/SecondBrain/reviewed/<CR>:bd<CR>")
 		vim.keymap.set("n", "<leader>odd", ":silent! !rm -f '%:p'<CR>:bd<CR>")
 	end,
 }

@@ -1,8 +1,8 @@
 return {
-	'echasnovski/mini.nvim',
-	enabled = false,
-	config = function()
-		local statusline = require 'mini.statusline'
-		statusline.setup {use_icons = true}
-	end
+	{
+		"echasnovski/mini.nvim",
+		config = function()
+			require("mini.surround").setup()
+		end,
+	},
 }

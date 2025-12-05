@@ -24,7 +24,7 @@ return {
 				text = false,
 				gitcommit = true,
 				lua = false,
-				javascript = true,
+				javascript = false,
 				typescript = false,
 				javascriptreact = false,
 				typescriptreact = false,
@@ -32,6 +32,7 @@ return {
 				css = true,
 				sh = false,
 				go = false,
+                yaml = false
 			}
 		end,
 	},

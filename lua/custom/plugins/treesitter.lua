@@ -8,7 +8,7 @@ return {
 
 			treesitter.setup({
 
-				ensure_installed = { "javascript", "typescript", "html", "css" },
+				ensure_installed = { "javascript", "typescript", "html", "css", "yaml" },
 
 				highlight = {
 					enable = true,

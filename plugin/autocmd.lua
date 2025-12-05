@@ -1,6 +1,7 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
-vim.cmd(":hi statusline guibg=#232136")
+-- vim.cmd(":hi statusline guibg=#232136")
+-- vim.cmd([[set noswapfile]])
 
 autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
@@ -21,11 +22,12 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
         vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
         vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("n", "<leader>ci", function() vim.lsp.buf.implementation() end, opts)
         vim.keymap.set("n", "<leader>cr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+        vim.keymap.set("n", "[j", function() vim.diagnostic.goto_next() end, opts)
+        vim.keymap.set("n", "[k", function() vim.diagnostic.goto_prev() end, opts)
     end
 })
 

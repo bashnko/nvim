@@ -15,5 +15,7 @@ require("lazy").setup({
 	spec = {
 		{ import = "custom.plugins" },
 		{ import = "custom.lsp" },
+		{ import = "custom.debugger" },
+		{ import = "custom.local" },
 	},
 })

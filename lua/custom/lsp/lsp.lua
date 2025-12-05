@@ -137,6 +137,52 @@ return {
 			},
 		})
 
+		lspconfig.dockerls.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.docker_compose_language_service.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.yamlls.setup({
+			capabilities = vim.tbl_deep_extend("force", capabilities, {
+				textDocument = {
+					foldingRange = {
+						dynamicRegistration = false,
+						lineFoldingOnly = true,
+					},
+				},
+			}),
+			flags = { debounce_text_changes = 150 },
+			on_new_config = function(new_config)
+				new_config.settings.yaml.schemas = vim.tbl_deep_extend(
+					"force",
+					new_config.settings.yaml.schemas or {},
+					require("schemastore").yaml.schemas()
+				)
+			end,
+			settings = {
+				redhat = { telemetry = { enabled = false } },
+				yaml = {
+					keyOrdering = false,
+					format = {
+						enable = true,
+						singleQuote = false,
+						bracketSpacing = true,
+					},
+					validate = true,
+					completion = true,
+					schemaStore = {
+						-- Disable built-in schemaStore to use schemastore.nvim plugin
+						enable = false,
+						url = "",
+					},
+				},
+			},
+		})
+
+
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 			root_dir = function(fname)
