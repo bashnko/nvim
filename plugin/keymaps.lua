@@ -30,7 +30,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux_sessionizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww muxify<CR>")
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
