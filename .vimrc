@@ -22,4 +22,4 @@ set incsearch
 set ignorecase
 
 set background=dark
-colorscheme  slate
+colorscheme gxvjbox

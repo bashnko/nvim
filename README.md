@@ -1,9 +1,9 @@
 ## quick vimrc
 > [!NOTE]
-> The curl command only setups .vimrc file, not nvim itself
+> The curl command only setups, .virmrc for vim (!nvim)
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/nhdfr/nvim/refs/heads/main/vim | bash
+curl -fsSL https://raw.githubusercontent.com/bashnko/nvim/refs/heads/main/vim | bash
 ```
 
 

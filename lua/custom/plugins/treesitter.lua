@@ -4,7 +4,11 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
 		config = function()
-			local treesitter = require("nvim-treesitter.configs")
+			local ok, treesitter = pcall(require, "nvim-treesitter.configs")
+			if not ok then
+				vim.notify("nvim-treesitter not available. Run :Lazy sync", vim.log.levels.WARN)
+				return
+			end
 
 			treesitter.setup({
 

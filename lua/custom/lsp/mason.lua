@@ -21,7 +21,7 @@ return {
 				"html",
 				"cssls",
 				"tailwindcss",
-				"gopls",
+				-- "gopls",
 				"tailwindcss",
 				"emmet_ls",
 				"emmet_language_server",

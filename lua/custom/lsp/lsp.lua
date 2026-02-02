@@ -3,10 +3,11 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
+		"b0o/schemastore.nvim",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
+		local util = require("lspconfig.util")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -57,11 +58,12 @@ return {
 				for _, client in ipairs(clients) do
 					client.stop()
 				end
+				vim.lsp.enable("emmet_ls", false)
 				emmet_enabled = false
 				vim.notify("Emmet LSP disabled", vim.log.levels.INFO)
 			else
 				if not emmet_enabled then
-					lspconfig.emmet_ls.setup({
+					vim.lsp.config("emmet_ls", {
 						capabilities = capabilities,
 						filetypes = {
 							"html",
@@ -72,6 +74,7 @@ return {
 							"sass",
 						},
 					})
+					vim.lsp.enable("emmet_ls")
 					local filetype = vim.bo.filetype
 					local emmet_filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass" }
 					for _, ft in ipairs(emmet_filetypes) do
@@ -92,7 +95,7 @@ return {
 		})
 
 		-- LSP Server Configurations
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -112,7 +115,7 @@ return {
 			},
 		})
 
-		lspconfig.emmet_ls.setup({
+		vim.lsp.config("emmet_ls", {
 			capabilities = capabilities,
 			filetypes = {
 				"html",
@@ -123,18 +126,19 @@ return {
 			},
 		})
 
-		lspconfig.gopls.setup({
+		vim.lsp.config("gopls", {
 			capabilities = capabilities,
+			cmd = { "gopls" },  -- Use system gopls from NixOS instead of Mason
 		})
 
-		lspconfig.cssls.setup({
+		vim.lsp.config("cssls", {
 			capabilities = capabilities,
 			filetypes = {
 				"css",
 			},
 		})
 
-		lspconfig.tailwindcss.setup({
+		vim.lsp.config("tailwindcss", {
 			capabilities = capabilities,
 			filetypes = {
 				"html",
@@ -144,15 +148,15 @@ return {
 			},
 		})
 
-		lspconfig.dockerls.setup({
+		vim.lsp.config("dockerls", {
 			capabilities = capabilities,
 		})
 
-		lspconfig.docker_compose_language_service.setup({
+		vim.lsp.config("docker_compose_language_service", {
 			capabilities = capabilities,
 		})
 
-		lspconfig.yamlls.setup({
+		vim.lsp.config("yamlls", {
 			capabilities = vim.tbl_deep_extend("force", capabilities, {
 				textDocument = {
 					foldingRange = {
@@ -162,13 +166,6 @@ return {
 				},
 			}),
 			flags = { debounce_text_changes = 150 },
-			on_new_config = function(new_config)
-				new_config.settings.yaml.schemas = vim.tbl_deep_extend(
-					"force",
-					new_config.settings.yaml.schemas or {},
-					require("schemastore").yaml.schemas()
-				)
-			end,
 			settings = {
 				redhat = { telemetry = { enabled = false } },
 				yaml = {
@@ -180,8 +177,8 @@ return {
 					},
 					validate = true,
 					completion = true,
+					schemas = require("schemastore").yaml.schemas(),
 					schemaStore = {
-						-- Disable built-in schemaStore to use schemastore.nvim plugin
 						enable = false,
 						url = "",
 					},
@@ -189,20 +186,34 @@ return {
 			},
 		})
 
-		lspconfig.ts_ls.setup({
+		vim.lsp.config("ts_ls", {
 			capabilities = capabilities,
-			root_dir = function(fname)
-				local util = lspconfig.util
-				return not util.root_pattern("deno.json", "deno.jsonc")(fname)
-					and util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
+			root_dir = function(bufnr, on_dir)
+				local fname = vim.api.nvim_buf_get_name(bufnr)
+				local deno_root = util.root_pattern("deno.json", "deno.jsonc")(fname)
+				local ts_root = util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
+				if not deno_root and ts_root then
+					on_dir(ts_root)
+				end
 			end,
-			single_file_support = true,
 			init_options = {
 				preferences = {
 					includeCompletionsWithSnippetText = true,
 					includeCompletionsForImportStatements = true,
 				},
 			},
+		})
+
+		vim.lsp.enable({
+			"lua_ls",
+			"emmet_ls",
+			"gopls",
+			"cssls",
+			"tailwindcss",
+			"dockerls",
+			"docker_compose_language_service",
+			"yamlls",
+			"ts_ls",
 		})
 	end,
 }

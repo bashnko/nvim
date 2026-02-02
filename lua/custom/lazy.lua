@@ -16,6 +16,6 @@ require("lazy").setup({
 		{ import = "custom.plugins" },
 		{ import = "custom.lsp" },
 		{ import = "custom.debugger" },
-		{ import = "custom.local" },
+		-- { import = "custom.local" },
 	},
 })
