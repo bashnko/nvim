@@ -131,6 +131,12 @@ return {
 			cmd = { "gopls" },  -- Use system gopls from NixOS instead of Mason
 		})
 
+		vim.lsp.config("alejandra", {
+			capabilities = capabilities,
+			cmd = { "alejandra" },
+		})
+
+
 		vim.lsp.config("cssls", {
 			capabilities = capabilities,
 			filetypes = {
