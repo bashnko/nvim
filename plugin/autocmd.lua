@@ -13,6 +13,14 @@ autocmd("TextYankPost", {
 	end,
 })
 
+autocmd("ColorScheme", {
+    desc = "Show ~ on empty lines",
+    group = augroup("show-eob", { clear = true }),
+    callback = function()
+        vim.opt.fillchars = vim.opt.fillchars + { eob = "~" }
+    end,
+})
+
 autocmd('LspAttach', {
     group = augroup('LSP actions',{}),
     callback = function(e)
