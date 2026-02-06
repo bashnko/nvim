@@ -6,5 +6,5 @@ require('snippets.all')
 
 -- Load colorscheme after lazy initializes
 vim.schedule(function()
-  vim.cmd("colorscheme gxvjbox")
+  vim.cmd("colorscheme vague")
 end)
