@@ -128,15 +128,14 @@ return {
 
 		vim.lsp.config("gopls", {
 			capabilities = capabilities,
-			cmd = { "gopls" },  -- Use system gopls from NixOS instead of Mason
-            settings = {
-              analyses = {
-                unusedparams = true;
-              },
-              staticcheck = true,
-              gofumpt = true,
-            },
-
+			cmd = { "gopls" },
+			settings = {
+				analyses = {
+					unusedparams = true,
+				},
+				staticcheck = true,
+				gofumpt = true,
+			},
 		})
 
 		vim.lsp.config("alejandra", {
@@ -144,6 +143,9 @@ return {
 			cmd = { "alejandra" },
 		})
 
+		vim.lsp.config("postgres_lsp", {
+			capabilities = capabilities,
+		})
 
 		vim.lsp.config("cssls", {
 			capabilities = capabilities,
