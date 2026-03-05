@@ -18,11 +18,11 @@ return {
           error = "bold",
           comments = "none",
           conditionals = "none",
-          functions = "none",
+          functions = "bold",
           headings = "bold",
           operators = "none",
           strings = "none",
-          variables = "none",
+          variables = "bold",
 
           -- keywords
           keywords = "none",

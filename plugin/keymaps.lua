@@ -16,6 +16,7 @@ vim.keymap.set({ "n", "v" }, "<leader>q", ":quit<CR>", { silent = true })
 -- macro machine
 vim.keymap.set("n", "<leader>me", '"ap')
 vim.keymap.set("n", "<leader>mc", '"ay$')
+vim.keymap.set("n", "<leader>ms", [[:%s//&/gn<Left><Left><Left><Left><Left>]])
 
 -- quickfix keymaps
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
@@ -39,22 +40,20 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>so", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>ms", [[:%s//&/gn<Left><Left><Left><Left><Left>]])
 vim.keymap.set("n", "<leader>re", ":mksession! Session.vim | restart source Session.vim <CR> ", { silent = true })
 
 -- plugs and test
 vim.keymap.set("n", "<leader>%", "<cmd>source %<CR>")
--- vim.keymap.set("n", "<leader>x", ":.lua<CR>")
-vim.keymap.set("v", "<leader>x", ":lua<CR>")
--- vim.keymap.set("n", "<leader>t", "<cmd>PlenaryBustedFile %<CR>")
+vim.keymap.set({"n","v"}, ",x", ":.lua<CR>")
+vim.keymap.set("n", ",t", "<cmd>PlenaryBustedFile %<CR>")
 
 -- Toggle inline diagnostics
 vim.keymap.set("n", "<leader>er", function()
-	local current = vim.diagnostic.config().virtual_text
-	vim.diagnostic.config({ virtual_text = not current })
-	print("Diagnostics: " .. (current and "OFF" or "ON"))
+  local current = vim.diagnostic.config().virtual_text
+  vim.diagnostic.config({ virtual_text = not current })
+  print("Diagnostics: " .. (current and "OFF" or "ON"))
 end, { desc = "Toggle inline diagnostics" })
 
 vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
+  vim.cmd("so")
 end)
