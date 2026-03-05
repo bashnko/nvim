@@ -30,6 +30,7 @@ return {
 				sh = false,
 				go = false,
 				yaml = false,
+                cpp = false
 			}
 		end,
 	},

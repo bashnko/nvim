@@ -8,7 +8,7 @@ return {
                 show_hidden = true,
             }
         })
-        vim.keymap.set({ "n", "x" }, "<leader>fe", function() require("oil").open() end, { silent = true })
+        vim.keymap.set({ "n", "x" }, "<leader>sd", function() require("oil").open() end, { silent = true })
     end
 }
 
