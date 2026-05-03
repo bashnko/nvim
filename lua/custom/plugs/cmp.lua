@@ -10,19 +10,20 @@ cmp.setup({
     autocomplete = { cmp.TriggerEvent.TextChanged },
   },
 
-  window = {
-    completion = {
-      scrollbar = true,
-      border = "rounded",
-      winhighlight = "Normal:CmpNormal",
-    },
-    documentation = {
-      scrollbar = true,
-      border = "rounded",
-      winhighlight = "Normal:CmpNormal",
-    },
+window = {
+  completion = {
+    scrollbar = true,
+    border = "single",
+    side_padding = 1,
+    col_offset = -3,
+    winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel",
   },
-
+  documentation = {
+    scrollbar = true,
+    border = "single",
+    winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder",
+  },
+},
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -61,3 +62,8 @@ cmp.setup({
   },
 })
 
+vim.api.nvim_set_hl(0, "CmpSel", {
+  bg = "#313244",
+  fg = "NONE",
+  bold = true,
+})

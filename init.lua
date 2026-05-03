@@ -22,12 +22,19 @@ vim.pack.add({
 
 })
 
+-- colorscheme
+require('vague').setup({
+  on_highlights = function() end,
+  colors = {
+    bg = '#000000',
+  },
+})
 vim.cmd.colorscheme('vague')
 
---plugn conf
+-- source plug
 require("mason").setup()
 
--- ext plugs
+-- source plug w/ conf
 require("custom.plugs.oil")
 require("custom.plugs.telescope")
 require("custom.plugs.mason")
