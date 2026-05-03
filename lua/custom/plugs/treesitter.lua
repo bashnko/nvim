@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		if not lang then
 			return
 		end
-		if lang == "oil" or "nvim-undotree" then
+		if lang == "oil" or lang == "nvim-undotree" then
 			return
 		end
 

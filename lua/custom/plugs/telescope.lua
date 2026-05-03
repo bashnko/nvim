@@ -1,5 +1,5 @@
 require("telescope").setup({
-	defaluts = {
+	defaults = {
 		borders = {
 			"─", -- top
 			"│", -- right
@@ -11,10 +11,10 @@ require("telescope").setup({
 			"└", -- bottom-left
 		},
 		path_display = { "smart" },
-		layout_config = {
-			height = 100,
-			width = 400,
-		},
+		-- layout_config = {
+		-- 	height = 100,
+		-- 	width = 400,
+		-- },
 	},
 	pickers = {
 		find_files = {

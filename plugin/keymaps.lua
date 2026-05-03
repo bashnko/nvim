@@ -17,22 +17,19 @@ keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set("x", "<leader>p", [["_dP]])
 keymap.set("n", "<leader>Y", [["+Y]])
 
-
 -- quickfix keymaps
 keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 
 keymap.set("n", "<C-f>", "<cmd>silent !tmux neww muxify<CR>")
-keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 keymap.set("n", "<leader>%", "<cmd>source %<CR>")
-keymap.set({"n","v"}, ",x", ":.lua<CR>")
+keymap.set({ "n", "v" }, ",x", ":.lua<CR>")
 keymap.set("n", "<leader>st", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap.set("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
 keymap.set("n", "<leader>u", ":Undotree<CR>")
 
 keymap.set("n", "<leader>er", function()
-  local current = vim.diagnostic.config().virtual_text
-  vim.diagnostic.config({ virtual_text = not current })
-  print("Diagnostics: " .. (current and "OFF" or "ON"))
+	local current = vim.diagnostic.config().virtual_text
+	vim.diagnostic.config({ virtual_text = not current })
+	print("Diagnostics: " .. (current and "OFF" or "ON"))
 end, { desc = "Toggle inline diagnostics" })
-
