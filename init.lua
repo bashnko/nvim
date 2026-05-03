@@ -32,6 +32,7 @@ require("vague").setup({
 	},
 })
 vim.cmd.colorscheme("vague")
+require("vim._core.ui2").enable({})
 
 -- source plug w/ conf
 require("custom.plugs.oil")
