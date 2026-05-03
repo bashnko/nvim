@@ -26,7 +26,7 @@ vim.pack.add({
 require('vague').setup({
   on_highlights = function() end,
   colors = {
-    bg = '#000000',
+    -- bg = '#000000',
   },
 })
 vim.cmd.colorscheme('vague')
@@ -40,3 +40,6 @@ require("custom.plugs.telescope")
 require("custom.plugs.mason")
 require("custom.plugs.cmp")
 require("custom.plugs.treesitter")
+
+vim.cmd.packadd("nvim.undotree")
+vim.cmd.packadd("nvim.difftool")
