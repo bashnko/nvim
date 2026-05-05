@@ -10,13 +10,12 @@ require("conform").setup({
 		bash = { "shfmt" },
 		nix = { "alejandra" },
 	},
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_fallback = true,
-	},
+	-- format_on_save = {
+	-- 	timeout_ms = 500,
+	-- 	lsp_fallback = true,
+	-- },
 })
 
 vim.keymap.set("n", "<leader>fm", function()
-	require("conform").format({ async = true, lsp_fallback = true })
+	require("conform").format({ async = false, lsp_fallback = true })
 end, { desc = "Format buffer" })
-
