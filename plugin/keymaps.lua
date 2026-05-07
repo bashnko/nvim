@@ -24,7 +24,7 @@ keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 keymap.set("n", "<C-f>", "<cmd>silent !tmux neww muxify<CR>")
 keymap.set("n", "<leader>%", "<cmd>source %<CR>")
 keymap.set({ "n", "v" }, ",x", ":.lua<CR>")
-keymap.set("n", "<leader>st", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap.set("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
 keymap.set("n", "<leader>u", ":Undotree<CR>")
 

@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 vim.pack.add({
 	{ src = "https://github.com/vague-theme/vague.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://github.com/nvim-mini/mini.surround" },
 	-- telescope and deps
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -32,10 +33,11 @@ require("vague").setup({
 		-- bg = '#000000',
 	},
 })
-vim.cmd.colorscheme("vague")
+vim.cmd.colorscheme("dragon")
 require("vim._core.ui2").enable({})
 
 -- source plug w/ conf
+require("mini.surround").setup()
 require("custom.plugs.oil")
 require("custom.plugs.telescope")
 require("custom.plugs.mason")
