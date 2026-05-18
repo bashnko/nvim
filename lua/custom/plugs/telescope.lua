@@ -21,7 +21,7 @@ require("telescope").setup({
 	},
 	pickers = {
 		find_files = {
-			theme = "dropdown",
+			-- theme = "dropdown",
 			find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".git" },
 		},
 		live_grep = {},

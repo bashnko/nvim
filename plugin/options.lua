@@ -1,3 +1,4 @@
+-- vim.opt.laststatus = 3
 vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
