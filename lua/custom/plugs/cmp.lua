@@ -38,8 +38,8 @@ cmp.setup({
 	}),
 
 	mapping = cmp.mapping.preset.insert({
-		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-		["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+		-- ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+		-- ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-e>"] = cmp.mapping.abort(),
@@ -48,7 +48,22 @@ cmp.setup({
 			fallback()
 		end, { "i", "s" }),
 		["<Tab>"] = cmp.mapping(function(fallback)
-			fallback()
+			if cmp.visible() then
+				cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
 		end, { "i", "s" }),
 	}),
 
@@ -67,15 +82,3 @@ vim.api.nvim_set_hl(0, "CmpSel", {
 	fg = "NONE",
 	bold = true,
 })
-
-vim.keymap.set({ "i", "s" }, "<c-k>", function()
-	if luasnip.expand_or_jumpable() then
-		luasnip.jump()
-	end
-end, { silent = true })
-
-vim.keymap.set({ "i", "s" }, "<c-j>", function()
-	if luasnip.expand_or_jumpable(-1) then
-		luasnip.jump(-1)
-	end
-end, { silent = true })
