@@ -9,6 +9,7 @@ require("conform").setup({
 		sh = { "shfmt" },
 		bash = { "shfmt" },
 		nix = { "alejandra" },
+        typ = { "typstlye" },
 	},
 	-- format_on_save = {
 	-- 	timeout_ms = 500,

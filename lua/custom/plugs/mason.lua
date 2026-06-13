@@ -4,7 +4,8 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"ts_ls",
 		"gopls",
-	},
+        "tinymist",
+	}
 })
 
 require("mason-tool-installer").setup({
@@ -15,5 +16,6 @@ require("mason-tool-installer").setup({
 		"shellcheck",
 		"eslint_d",
 		"alejandra",
+        "typstyle",
 	},
 })

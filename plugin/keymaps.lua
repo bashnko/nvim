@@ -16,6 +16,7 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set("x", "<leader>p", [["_dP]])
 keymap.set("n", "<leader>Y", [["+Y]])
+keymap.set({"n", "v", "x"}, "<leader>n", ":norm ")
 
 -- quickfix keymaps
 keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
