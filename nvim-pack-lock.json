@@ -57,10 +57,6 @@
       "rev": "2715e04bea3ec9244f15b421dc5b18c0fe326210",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
-    "neovim": {
-      "rev": "6a961effd67f6130d36df6d1c05c48c739796dd2",
-      "src": "https://github.com/rose-pine/neovim"
-    },
     "nvim-cmp": {
       "rev": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
       "src": "https://github.com/hrsh7th/nvim-cmp"

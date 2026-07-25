@@ -10,6 +10,7 @@ require("conform").setup({
 		bash = { "shfmt" },
 		nix = { "alejandra" },
         typ = { "typstlye" },
+        cpp = { "clang-format" },
 	},
 	-- format_on_save = {
 	-- 	timeout_ms = 500,

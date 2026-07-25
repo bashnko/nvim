@@ -1,3 +1,4 @@
+let mapleader = " "
 set nocompatible
 syntax on
 filetype plugin indent on
@@ -23,3 +24,7 @@ set ignorecase
 
 set background=dark
 colorscheme habamax
+
+"keymaps
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>

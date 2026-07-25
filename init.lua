@@ -5,6 +5,7 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.surround" },
 	{ src = "https://github.com/epwalsh/obsidian.nvim" },
+	{ src = "https://github.com/laytan/cloak.nvim" },
 	-- telescope and deps
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -46,6 +47,7 @@ require("custom.plugs.conform")
 require("custom.plugs.lint")
 require("custom.plugs.cmp")
 require("custom.plugs.treesitter")
+require("custom.plugs.cloak")
 require("custom.plugs.obsidian")
 
 vim.cmd.packadd("nvim.undotree")
